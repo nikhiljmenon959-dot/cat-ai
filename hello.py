@@ -25,9 +25,9 @@ def has(words, text):
     return any(w in text for w in words)
 
 def blink():
-    print(random.choice(["*slow blink*","*tail wagging in lazyness*","*looks at you with it's cute eyes*"]))
+    print("*slow blink*")
 
-def play(trust):
+def play():
     w=True
     while w :
         pp= input("> ").lower().strip()
@@ -40,12 +40,10 @@ def play(trust):
         elif pp in ["stop","stop playing","no more playing"]:
             print("stop playing*")
             w=False
-        elif has(["hit", "fat", "stupid"], pp):
+        elif has(["hit", "fat", "stupid","dum"], user):
             trust = max(0, trust - 2)
             set_emotion("angry", 5)
-            print("*ears flatten and tail lashes violently*")
-            w=False
-
+            print(random.choice(["hits your face","bites you","*ears flatten and tail lashes violently*"]))
         else:
             print("*looks at you in confusion*")
 
@@ -59,6 +57,9 @@ while True:
     hunger = min(10, hunger + 0.2)
 
     # ---------- Exit ----------
+    if  has(["poppu"], user):
+        print("meow")
+
     if user in ["bye", "exit", "good night"]:
         print("*curls up and sleeps*")
         break
@@ -71,9 +72,7 @@ while True:
         else:
             print("*sleeps quietly*")
         continue
-    #----------cat name---------
-    if "poppu" in user:
-        print("meow..")
+
     # ---------- Name ----------
     if "i am" in user:
         print("*looks at you calmly*")
@@ -151,7 +150,7 @@ while True:
         elif rule==False:
             trust = max(0, trust - 2)
             set_emotion("angry", 5)
-            print("*ears flatten and tail lashes violently*")
+            print(random.choice(["hits your face","bites you","*ears flatten and tail lashes violently*"]))
             continue
 
     # ---------- Sleep ----------
@@ -164,7 +163,7 @@ while True:
     if has(["play"], user):
         if emotion == "happy":
             print("*meow*")
-            play(trust)
+            play()
             continue
 
         if emotion == "angry":
@@ -184,5 +183,3 @@ while True:
         print("*keeps distance, ears low*")
     else:
         blink()
-
-      
