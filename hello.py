@@ -174,7 +174,7 @@ while True:
     if emotion == "happy":
         v=random.randint(1,2)
         if v == 1:
-            print("*slow blinks affectionately*")
+            print(random.choice(["*slow blinks affectionately*","*kisses you*","*meow*"])
         if v == 2:
             print("*licks you*")
     elif emotion == "sad":
